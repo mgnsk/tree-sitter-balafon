@@ -7,8 +7,8 @@ c
 ---
 
     (source_file
-      (note_list
-        (symbol
+      (decl_list
+        (note_list
           (char))))
 
 
@@ -22,15 +22,12 @@ c-
 ---
 
     (source_file
-      (note_list
-        (symbol
-          (rest))
-        (symbol
-          (char)))
-      (note_list
-        (symbol
+      (decl_list
+        (note_list
+          (rest)
           (char))
-        (symbol
+        (note_list
+          (char)
           (rest))))
 
 ==================
@@ -42,10 +39,9 @@ cc
 ---
 
     (source_file
-      (note_list
-        (symbol
-          (char))
-        (symbol
+      (decl_list
+        (note_list
+          (char)
           (char))))
 
 ==================
@@ -57,13 +53,12 @@ cc8.
 ---
 
     (source_file
-      (note_list
-        (symbol
-          (char))
-        (symbol
-          (char))
-        (property)
-        (property)))
+      (decl_list
+        (note_list
+          (char)
+          (char)
+          (property)
+          (property))))
 
 ==================
 note groups
@@ -74,12 +69,10 @@ c[cc]8
 ---
 
     (source_file
-      (note_list
-        (symbol
-          (char))
+      (decl_list
         (note_list
-          (symbol
+          (char)
+          (note_list
+            (char)
             (char))
-          (symbol
-            (char)))
-        (property)))
+          (property))))

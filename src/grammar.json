@@ -129,7 +129,7 @@
         },
         {
           "type": "FIELD",
-          "name": "bar_name",
+          "name": "name",
           "content": {
             "type": "SYMBOL",
             "name": "ident"
@@ -152,8 +152,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "decl_list"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "decl_list"
+          }
         },
         {
           "type": "SEQ",
@@ -610,8 +614,8 @@
   "externals": [],
   "inline": [
     "decl",
-    "decl_list",
-    "note_object"
+    "note_object",
+    "symbol"
   ],
   "supertypes": []
 }

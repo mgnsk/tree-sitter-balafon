@@ -35,7 +35,7 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, " ", "\t"],
 
-  inline: ($) => [$.decl, $.decl_list, $.note_object],
+  inline: ($) => [$.decl, $.note_object, $.symbol],
 
   rules: {
     source_file: ($) => seq(repeat(terminator), $.decl_list),
@@ -53,9 +53,9 @@ module.exports = grammar({
     bar: ($) =>
       seq(
         cmdBar,
-        field("bar_name", $.ident),
+        field("name", $.ident),
         repeat(terminator),
-        $.decl_list,
+        field("body", $.decl_list),
         cmdEnd,
       ),
 
