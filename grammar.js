@@ -1,6 +1,97 @@
+const terminator = choice(";", "\n"),
+  uint = /0|[1-9][1-9]*/,
+  char = /[a-zA-Z]/,
+  rest = "-",
+  ident = token(repeat1(choice(char, uint))),
+  prefix = ":",
+  cmdBar = seq(prefix, "bar"),
+  cmdEnd = seq(prefix, "end"),
+  cmdPlay = seq(prefix, "play"),
+  cmdAssign = seq(prefix, "assign"),
+  cmdTempo = seq(prefix, "tempo"),
+  cmdTimesig = seq(prefix, "timesig"),
+  cmdVelocity = seq(prefix, "velocity"),
+  cmdChannel = seq(prefix, "channel"),
+  cmdProgram = seq(prefix, "program"),
+  cmdControl = seq(prefix, "control"),
+  cmdStart = seq(prefix, "start"),
+  cmdStop = seq(prefix, "stop"),
+  bracketBegin = "[",
+  bracketEnd = "]",
+  propSharp = "#",
+  propFlat = "$",
+  propStaccato = "`",
+  propAccent = ">",
+  propMarcato = "^",
+  propGhost = ")",
+  propDot = ".",
+  propTuplet = choice("/3", "/5"),
+  propLetRing = "*";
+
 module.exports = grammar({
   name: "balafon",
+
+  extras: ($) => [$.comment, " ", "\t"],
+
   rules: {
-    source_file: ($) => "hello",
+    source_file: ($) => seq(repeat(terminator), $.decl_list),
+
+    decl_list: ($) =>
+      prec.left(seq(repeat1(seq($.decl, terminator)), repeat(terminator))),
+
+    decl: ($) => choice($.bar, $.command, $.note_list),
+
+    bar: ($) =>
+      seq(
+        cmdBar,
+        field("bar_name", ident),
+        repeat(terminator),
+        $.decl_list,
+        cmdEnd,
+      ),
+
+    note_list: ($) => repeat1($.note_object),
+
+    note_object: ($) =>
+      choice(
+        seq($.symbol, repeat($.property)),
+        seq(bracketBegin, $.note_list, bracketEnd, repeat($.property)),
+      ),
+
+    symbol: () => choice(char, rest),
+
+    property: () =>
+      choice(
+        propSharp,
+        propFlat,
+        propStaccato,
+        propAccent,
+        propMarcato,
+        propGhost,
+        uint,
+        propDot,
+        propTuplet,
+        propLetRing,
+      ),
+
+    command: () =>
+      choice(
+        seq(cmdAssign, field("note", char), field("key", uint)),
+        seq(cmdPlay, field("bar_name", ident)),
+        seq(cmdTempo, field("bpm", uint)),
+        seq(cmdTimesig, field("num", uint), field("denom", uint)),
+        seq(cmdVelocity, field("velocity", uint)),
+        seq(cmdChannel, field("channel", uint)),
+        seq(cmdProgram, field("program", uint)),
+        seq(cmdControl, field("control", uint), field("parameter", uint)),
+        cmdStart,
+        cmdStop,
+      ),
+
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    comment: () =>
+      token(
+        choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+      ),
   },
 });

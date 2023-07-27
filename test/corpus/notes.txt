@@ -1,0 +1,77 @@
+==================
+notes
+==================
+
+c
+c
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (note_list
+            (note_object
+              (symbol))))
+        (decl
+          (note_list
+            (note_object
+              (symbol))))))
+
+==================
+note lists
+==================
+
+cc
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (note_list
+            (note_object
+              (symbol))
+            (note_object
+              (symbol))))))
+
+==================
+note properties
+==================
+
+cc8.
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (note_list
+            (note_object
+              (symbol))
+            (note_object
+              (symbol)
+              (property)
+              (property))))))
+
+==================
+note groups
+==================
+
+c[cc]8
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (note_list
+            (note_object
+              (symbol))
+            (note_object
+              (note_list
+                (note_object
+                  (symbol))
+                (note_object
+                  (symbol)))
+              (property))))))

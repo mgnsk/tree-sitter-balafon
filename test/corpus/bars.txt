@@ -1,0 +1,17 @@
+==================
+bars
+==================
+
+:bar foo
+    :start
+:end
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (bar
+            (decl_list
+              (decl
+                (command)))))))

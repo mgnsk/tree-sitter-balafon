@@ -11,7 +11,18 @@
     "tree-sitter-cli": "^0.20.8"
   },
   "scripts": {
-    "generate": "npx tree-sitter generate"
+    "build": "npx tree-sitter generate && node-gyp build",
+    "test": "npx tree-sitter test"
   },
+  "tree-sitter": [
+    {
+      "scope": "source.balafon",
+      "file-types": [
+        "bal"
+      ],
+      "injection-regex": "balafon"
+    }
+  ],
+  "first-line-regex": "#!.*\\bbalafon$",
   "main": "bindings/node"
 }

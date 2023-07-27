@@ -1,0 +1,42 @@
+==================
+commands
+==================
+
+:assign c 60
+:play foo
+:tempo 120
+:timesig 4 4
+:velocity 100
+:channel 1
+:program 1
+:control 1 1
+:start
+:stop
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (command))
+        (ERROR)
+        (decl
+          (command))
+        (decl
+          (command))
+        (ERROR)
+        (decl
+          (command))
+        (decl
+          (command))
+        (ERROR)
+        (decl
+          (command))
+        (decl
+          (command))
+        (decl
+          (command))
+        (decl
+          (command))
+        (decl
+          (command))))
