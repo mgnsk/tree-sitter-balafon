@@ -1,17 +1,22 @@
+; commands that emit MIDI events
 [
-  "bar"
-  "end"
   "play"
-  "assign"
   "tempo"
-  "timesig"
-  "velocity"
-  "channel"
   "program"
   "control"
   "start"
   "stop"
 ] @keyword
+
+; commands that don't emit MIDI events
+[
+  "bar"
+  "end"
+  "assign"
+  "timesig"
+  "velocity"
+  "channel"
+] @constant.builtin
 
 [
   "["
@@ -20,8 +25,7 @@
 
 (comment) @comment @spell
 
-
-(symbol) @character
+(char) @character
 
 (uint) @number
 
