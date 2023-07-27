@@ -12,11 +12,13 @@ c
         (decl
           (note_list
             (note_object
-              (symbol))))
+              (symbol
+                (char)))))
         (decl
           (note_list
             (note_object
-              (symbol))))))
+              (symbol
+                (char)))))))
 
 ==================
 note lists
@@ -31,9 +33,11 @@ cc
         (decl
           (note_list
             (note_object
-              (symbol))
+              (symbol
+                (char)))
             (note_object
-              (symbol))))))
+              (symbol
+                (char)))))))
 
 ==================
 note properties
@@ -48,9 +52,11 @@ cc8.
         (decl
           (note_list
             (note_object
-              (symbol))
+              (symbol
+                (char)))
             (note_object
-              (symbol)
+              (symbol
+                (char))
               (property)
               (property))))))
 
@@ -67,11 +73,14 @@ c[cc]8
         (decl
           (note_list
             (note_object
-              (symbol))
+              (symbol
+                (char)))
             (note_object
               (note_list
                 (note_object
-                  (symbol))
+                  (symbol
+                    (char)))
                 (note_object
-                  (symbol)))
+                  (symbol
+                    (char))))
               (property))))))

@@ -20,6 +20,9 @@
       "file-types": [
         "bal"
       ],
+      "highlights": [
+        "queries/balafon/highlights.scm"
+      ],
       "injection-regex": "balafon"
     }
   ],

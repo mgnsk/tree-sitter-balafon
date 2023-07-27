@@ -80,6 +80,14 @@
         }
       ]
     },
+    "char": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]"
+    },
+    "uint": {
+      "type": "PATTERN",
+      "value": "0|[1-9][1-9]*"
+    },
     "ident": {
       "type": "TOKEN",
       "content": {
@@ -214,8 +222,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[a-zA-Z]"
+          "type": "SYMBOL",
+          "name": "char"
         },
         {
           "type": "STRING",
@@ -300,16 +308,16 @@
               "type": "FIELD",
               "name": "note",
               "content": {
-                "type": "PATTERN",
-                "value": "[a-zA-Z]"
+                "type": "SYMBOL",
+                "name": "char"
               }
             },
             {
               "type": "FIELD",
               "name": "key",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -360,8 +368,8 @@
               "type": "FIELD",
               "name": "bpm",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -386,16 +394,16 @@
               "type": "FIELD",
               "name": "num",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             },
             {
               "type": "FIELD",
               "name": "denom",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -420,8 +428,8 @@
               "type": "FIELD",
               "name": "velocity",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -446,8 +454,8 @@
               "type": "FIELD",
               "name": "channel",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -472,8 +480,8 @@
               "type": "FIELD",
               "name": "program",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]
@@ -498,16 +506,16 @@
               "type": "FIELD",
               "name": "control",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             },
             {
               "type": "FIELD",
               "name": "parameter",
               "content": {
-                "type": "PATTERN",
-                "value": "0|[1-9][1-9]*"
+                "type": "SYMBOL",
+                "name": "uint"
               }
             }
           ]

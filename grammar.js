@@ -25,7 +25,10 @@ const terminator = choice(";", "\n"),
   propGhost = ")",
   propDot = ".",
   propTuplet = choice("/3", "/5"),
-  propLetRing = "*";
+  propLetRing = "*",
+  lineComment = seq("//", /.*/),
+  // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+  blockComment = seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/");
 
 module.exports = grammar({
   name: "balafon",
@@ -38,6 +41,9 @@ module.exports = grammar({
     decl_list: ($) => prec.left(seq(repeat1(seq($.decl, repeat1(terminator))))),
 
     decl: ($) => choice($.bar, $.command, $.note_list),
+
+    char: () => char,
+    uint: () => uint,
 
     ident: () => token(repeat1(choice(char, uint))),
 
@@ -58,7 +64,7 @@ module.exports = grammar({
         seq(bracketBegin, $.note_list, bracketEnd, repeat($.property)),
       ),
 
-    symbol: () => choice(char, rest),
+    symbol: ($) => choice($.char, rest),
 
     property: () =>
       choice(
@@ -76,22 +82,18 @@ module.exports = grammar({
 
     command: ($) =>
       choice(
-        seq(cmdAssign, field("note", char), field("key", uint)),
+        seq(cmdAssign, field("note", $.char), field("key", $.uint)),
         seq(cmdPlay, field("bar_name", $.ident)),
-        seq(cmdTempo, field("bpm", uint)),
-        seq(cmdTimesig, field("num", uint), field("denom", uint)),
-        seq(cmdVelocity, field("velocity", uint)),
-        seq(cmdChannel, field("channel", uint)),
-        seq(cmdProgram, field("program", uint)),
-        seq(cmdControl, field("control", uint), field("parameter", uint)),
+        seq(cmdTempo, field("bpm", $.uint)),
+        seq(cmdTimesig, field("num", $.uint), field("denom", $.uint)),
+        seq(cmdVelocity, field("velocity", $.uint)),
+        seq(cmdChannel, field("channel", $.uint)),
+        seq(cmdProgram, field("program", $.uint)),
+        seq(cmdControl, field("control", $.uint), field("parameter", $.uint)),
         cmdStart,
         cmdStop,
       ),
 
-    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
-    comment: () =>
-      token(
-        choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
-      ),
+    comment: () => token(choice(lineComment, blockComment)),
   },
 });
