@@ -20,6 +20,11 @@
 
 (comment) @comment @spell
 
+
+(symbol) @character
+
+(uint) @number
+
 (ident) @variable
 
 (property) @operator

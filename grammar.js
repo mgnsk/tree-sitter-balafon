@@ -1,5 +1,5 @@
 const terminator = choice(";", "\n"),
-  uint = /0|[1-9][1-9]*/,
+  uint = /\d+/,
   char = /[a-zA-Z]/,
   rest = "-",
   prefix = ":",
@@ -44,6 +44,7 @@ module.exports = grammar({
 
     char: () => char,
     uint: () => uint,
+    rest: () => rest,
 
     ident: () => token(repeat1(choice(char, uint))),
 
@@ -64,7 +65,7 @@ module.exports = grammar({
         seq(bracketBegin, $.note_list, bracketEnd, repeat($.property)),
       ),
 
-    symbol: ($) => choice($.char, rest),
+    symbol: ($) => choice($.char, $.rest),
 
     property: () =>
       choice(

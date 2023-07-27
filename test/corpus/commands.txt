@@ -21,14 +21,12 @@ commands
           (command
             (char)
             (uint)))
-        (ERROR)
         (decl
           (command
             (ident)))
         (decl
           (command
             (uint)))
-        (ERROR)
         (decl
           (command
             (uint)
@@ -36,7 +34,6 @@ commands
         (decl
           (command
             (uint)))
-        (ERROR)
         (decl
           (command
             (uint)))
@@ -68,9 +65,7 @@ commands empty lines
           (command
             (char)
             (uint)))
-        (ERROR)
         (decl
           (command
             (char)
-            (uint)))
-        (ERROR)))
+            (uint)))))

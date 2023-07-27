@@ -13,8 +13,7 @@ line comment
         (decl
           (command
             (char)
-            (uint)))
-        (ERROR)))
+            (uint)))))
 
 ==================
 single line block comment
@@ -31,8 +30,7 @@ single line block comment
         (decl
           (command
             (char)
-            (uint)))
-        (ERROR)))
+            (uint)))))
 
 ==================
 multi line block comment
@@ -51,5 +49,4 @@ This is a multi line block comment.
         (decl
           (command
             (char)
-            (uint)))
-        (ERROR)))
+            (uint)))))

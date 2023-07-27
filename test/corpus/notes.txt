@@ -2,8 +2,8 @@
 notes
 ==================
 
-c
-c
+-c
+c-
 
 ---
 
@@ -13,12 +13,18 @@ c
           (note_list
             (note_object
               (symbol
+                (rest)))
+            (note_object
+              (symbol
                 (char)))))
         (decl
           (note_list
             (note_object
               (symbol
-                (char)))))))
+                (char)))
+            (note_object
+              (symbol
+                (rest)))))))
 
 ==================
 note lists
