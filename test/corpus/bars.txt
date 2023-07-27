@@ -12,6 +12,7 @@ bars
       (decl_list
         (decl
           (bar
+            (ident)
             (decl_list
               (decl
                 (command)))))))

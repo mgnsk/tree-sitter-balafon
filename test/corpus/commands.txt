@@ -21,7 +21,8 @@ commands
           (command))
         (ERROR)
         (decl
-          (command))
+          (command
+            (ident)))
         (decl
           (command))
         (ERROR)

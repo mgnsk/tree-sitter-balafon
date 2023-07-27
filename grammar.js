@@ -2,7 +2,6 @@ const terminator = choice(";", "\n"),
   uint = /0|[1-9][1-9]*/,
   char = /[a-zA-Z]/,
   rest = "-",
-  ident = token(repeat1(choice(char, uint))),
   prefix = ":",
   cmdBar = seq(prefix, "bar"),
   cmdEnd = seq(prefix, "end"),
@@ -40,10 +39,12 @@ module.exports = grammar({
 
     decl: ($) => choice($.bar, $.command, $.note_list),
 
+    ident: () => token(repeat1(choice(char, uint))),
+
     bar: ($) =>
       seq(
         cmdBar,
-        field("bar_name", ident),
+        field("bar_name", $.ident),
         repeat(terminator),
         $.decl_list,
         cmdEnd,
@@ -73,10 +74,10 @@ module.exports = grammar({
         propLetRing,
       ),
 
-    command: () =>
+    command: ($) =>
       choice(
         seq(cmdAssign, field("note", char), field("key", uint)),
-        seq(cmdPlay, field("bar_name", ident)),
+        seq(cmdPlay, field("bar_name", $.ident)),
         seq(cmdTempo, field("bpm", uint)),
         seq(cmdTimesig, field("num", uint), field("denom", uint)),
         seq(cmdVelocity, field("velocity", uint)),

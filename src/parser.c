@@ -19,9 +19,9 @@
 enum {
   anon_sym_SEMI = 1,
   anon_sym_LF = 2,
-  anon_sym_COLON = 3,
-  anon_sym_bar = 4,
-  aux_sym_bar_token1 = 5,
+  sym_ident = 3,
+  anon_sym_COLON = 4,
+  anon_sym_bar = 5,
   anon_sym_end = 6,
   anon_sym_LBRACK = 7,
   anon_sym_RBRACK = 8,
@@ -68,9 +68,9 @@ static const char * const ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
   [anon_sym_SEMI] = ";",
   [anon_sym_LF] = "\n",
+  [sym_ident] = "ident",
   [anon_sym_COLON] = ":",
   [anon_sym_bar] = "bar",
-  [aux_sym_bar_token1] = "bar_token1",
   [anon_sym_end] = "end",
   [anon_sym_LBRACK] = "[",
   [anon_sym_RBRACK] = "]",
@@ -117,9 +117,9 @@ static const TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
   [anon_sym_SEMI] = anon_sym_SEMI,
   [anon_sym_LF] = anon_sym_LF,
+  [sym_ident] = sym_ident,
   [anon_sym_COLON] = anon_sym_COLON,
   [anon_sym_bar] = anon_sym_bar,
-  [aux_sym_bar_token1] = aux_sym_bar_token1,
   [anon_sym_end] = anon_sym_end,
   [anon_sym_LBRACK] = anon_sym_LBRACK,
   [anon_sym_RBRACK] = anon_sym_RBRACK,
@@ -175,16 +175,16 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
+  [sym_ident] = {
+    .visible = true,
+    .named = true,
+  },
   [anon_sym_COLON] = {
     .visible = true,
     .named = false,
   },
   [anon_sym_bar] = {
     .visible = true,
-    .named = false,
-  },
-  [aux_sym_bar_token1] = {
-    .visible = false,
     .named = false,
   },
   [anon_sym_end] = {
@@ -493,7 +493,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '.') ADVANCE(75);
       if (lookahead == '/') ADVANCE(2);
       if (lookahead == '0') ADVANCE(73);
-      if (lookahead == ':') ADVANCE(59);
+      if (lookahead == ':') ADVANCE(60);
       if (lookahead == ';') ADVANCE(57);
       if (lookahead == '>') ADVANCE(70);
       if (lookahead == '[') ADVANCE(63);
@@ -636,7 +636,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'p') ADVANCE(37);
       END_STATE();
     case 41:
-      if (lookahead == 'r') ADVANCE(60);
+      if (lookahead == 'r') ADVANCE(61);
       END_STATE();
     case 42:
       if (lookahead == 'r') ADVANCE(49);
@@ -693,8 +693,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '/') ADVANCE(1);
       if (lookahead == '0' ||
           ('A' <= lookahead && lookahead <= 'Z') ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(61);
-      if (('1' <= lookahead && lookahead <= '9')) ADVANCE(61);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(59);
+      if (('1' <= lookahead && lookahead <= '9')) ADVANCE(59);
       END_STATE();
     case 56:
       ACCEPT_TOKEN(ts_builtin_sym_end);
@@ -706,17 +706,17 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_LF);
       END_STATE();
     case 59:
-      ACCEPT_TOKEN(anon_sym_COLON);
-      END_STATE();
-    case 60:
-      ACCEPT_TOKEN(anon_sym_bar);
-      END_STATE();
-    case 61:
-      ACCEPT_TOKEN(aux_sym_bar_token1);
+      ACCEPT_TOKEN(sym_ident);
       if (lookahead == '0' ||
           ('A' <= lookahead && lookahead <= 'Z') ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(61);
-      if (('1' <= lookahead && lookahead <= '9')) ADVANCE(61);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(59);
+      if (('1' <= lookahead && lookahead <= '9')) ADVANCE(59);
+      END_STATE();
+    case 60:
+      ACCEPT_TOKEN(anon_sym_COLON);
+      END_STATE();
+    case 61:
+      ACCEPT_TOKEN(anon_sym_bar);
       END_STATE();
     case 62:
       ACCEPT_TOKEN(anon_sym_end);
@@ -1461,7 +1461,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       sym_comment,
     ACTIONS(122), 1,
-      aux_sym_bar_token1,
+      sym_ident,
   [713] = 2,
     ACTIONS(3), 1,
       sym_comment,
@@ -1476,7 +1476,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(3), 1,
       sym_comment,
     ACTIONS(128), 1,
-      aux_sym_bar_token1,
+      sym_ident,
   [734] = 2,
     ACTIONS(3), 1,
       sym_comment,

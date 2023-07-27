@@ -2,7 +2,18 @@
   {
     "type": "bar",
     "named": true,
-    "fields": {},
+    "fields": {
+      "bar_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
@@ -17,7 +28,18 @@
   {
     "type": "command",
     "named": true,
-    "fields": {}
+    "fields": {
+      "bar_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "decl",
@@ -207,6 +229,10 @@
   {
     "type": "end",
     "named": false
+  },
+  {
+    "type": "ident",
+    "named": true
   },
   {
     "type": "play",
