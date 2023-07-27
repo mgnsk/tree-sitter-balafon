@@ -36,8 +36,7 @@ module.exports = grammar({
   rules: {
     source_file: ($) => seq(repeat(terminator), $.decl_list),
 
-    decl_list: ($) =>
-      prec.left(seq(repeat1(seq($.decl, terminator)), repeat(terminator))),
+    decl_list: ($) => prec.left(seq(repeat1(seq($.decl, repeat1(terminator))))),
 
     decl: ($) => choice($.bar, $.command, $.note_list),
 

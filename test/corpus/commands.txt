@@ -40,3 +40,22 @@ commands
           (command))
         (decl
           (command))))
+
+==================
+commands empty lines
+==================
+
+:assign c 60
+
+:assign c 60
+
+---
+
+    (source_file
+      (decl_list
+        (decl
+          (command))
+        (ERROR)
+        (decl
+          (command))
+        (ERROR)))
