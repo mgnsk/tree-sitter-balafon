@@ -23,6 +23,5 @@
       "injection-regex": "balafon"
     }
   ],
-  "first-line-regex": "#!.*\\bbalafon$",
   "main": "bindings/node"
 }
