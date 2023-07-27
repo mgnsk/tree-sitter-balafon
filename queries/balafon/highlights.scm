@@ -18,6 +18,8 @@
   "]"
 ] @paren
 
-(comment) @comment
+(comment) @comment @spell
 
 (ident) @variable
+
+(property) @operator
