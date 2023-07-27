@@ -9,10 +9,6 @@ bars
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (bar
-            (ident)
-            (decl_list
-              (decl
-                (command)))))))
+      (bar
+        (ident)
+        (command)))

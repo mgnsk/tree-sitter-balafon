@@ -16,38 +16,27 @@ commands
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (command
-            (char)
-            (uint)))
-        (decl
-          (command
-            (ident)))
-        (decl
-          (command
-            (uint)))
-        (decl
-          (command
-            (uint)
-            (uint)))
-        (decl
-          (command
-            (uint)))
-        (decl
-          (command
-            (uint)))
-        (decl
-          (command
-            (uint)))
-        (decl
-          (command
-            (uint)
-            (uint)))
-        (decl
-          (command))
-        (decl
-          (command))))
+      (command
+        (char)
+        (uint))
+      (command
+        (ident))
+      (command
+        (uint))
+      (command
+        (uint)
+        (uint))
+      (command
+        (uint))
+      (command
+        (uint))
+      (command
+        (uint))
+      (command
+        (uint)
+        (uint))
+      (command)
+      (command))
 
 ==================
 commands empty lines
@@ -60,12 +49,9 @@ commands empty lines
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (command
-            (char)
-            (uint)))
-        (decl
-          (command
-            (char)
-            (uint)))))
+      (command
+        (char)
+        (uint))
+      (command
+        (char)
+        (uint)))

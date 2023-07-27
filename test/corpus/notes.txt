@@ -1,5 +1,19 @@
 ==================
-notes
+single note
+==================
+
+c
+
+---
+
+    (source_file
+      (note_list
+        (symbol
+          (char))))
+
+
+==================
+notes and rests
 ==================
 
 -c
@@ -8,23 +22,16 @@ c-
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (note_list
-            (note_object
-              (symbol
-                (rest)))
-            (note_object
-              (symbol
-                (char)))))
-        (decl
-          (note_list
-            (note_object
-              (symbol
-                (char)))
-            (note_object
-              (symbol
-                (rest)))))))
+      (note_list
+        (symbol
+          (rest))
+        (symbol
+          (char)))
+      (note_list
+        (symbol
+          (char))
+        (symbol
+          (rest))))
 
 ==================
 note lists
@@ -35,15 +42,11 @@ cc
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (note_list
-            (note_object
-              (symbol
-                (char)))
-            (note_object
-              (symbol
-                (char)))))))
+      (note_list
+        (symbol
+          (char))
+        (symbol
+          (char))))
 
 ==================
 note properties
@@ -54,17 +57,13 @@ cc8.
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (note_list
-            (note_object
-              (symbol
-                (char)))
-            (note_object
-              (symbol
-                (char))
-              (property)
-              (property))))))
+      (note_list
+        (symbol
+          (char))
+        (symbol
+          (char))
+        (property)
+        (property)))
 
 ==================
 note groups
@@ -75,18 +74,12 @@ c[cc]8
 ---
 
     (source_file
-      (decl_list
-        (decl
-          (note_list
-            (note_object
-              (symbol
-                (char)))
-            (note_object
-              (note_list
-                (note_object
-                  (symbol
-                    (char)))
-                (note_object
-                  (symbol
-                    (char))))
-              (property))))))
+      (note_list
+        (symbol
+          (char))
+        (note_list
+          (symbol
+            (char))
+          (symbol
+            (char)))
+        (property)))

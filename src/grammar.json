@@ -608,7 +608,11 @@
   "conflicts": [],
   "precedences": [],
   "externals": [],
-  "inline": [],
+  "inline": [
+    "decl",
+    "decl_list",
+    "note_object"
+  ],
   "supertypes": []
 }
 

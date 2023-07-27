@@ -35,6 +35,8 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, " ", "\t"],
 
+  inline: ($) => [$.decl, $.decl_list, $.note_object],
+
   rules: {
     source_file: ($) => seq(repeat(terminator), $.decl_list),
 

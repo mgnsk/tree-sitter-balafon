@@ -9,11 +9,9 @@ line comment
 
     (source_file
       (comment)
-      (decl_list
-        (decl
-          (command
-            (char)
-            (uint)))))
+      (command
+        (char)
+        (uint)))
 
 ==================
 single line block comment
@@ -26,11 +24,9 @@ single line block comment
 
     (source_file
       (comment)
-      (decl_list
-        (decl
-          (command
-            (char)
-            (uint)))))
+      (command
+        (char)
+        (uint)))
 
 ==================
 multi line block comment
@@ -45,8 +41,6 @@ This is a multi line block comment.
 
     (source_file
       (comment)
-      (decl_list
-        (decl
-          (command
-            (char)
-            (uint)))))
+      (command
+        (char)
+        (uint)))
