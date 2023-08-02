@@ -129,7 +129,27 @@
           }
         ]
       },
+      "scale": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
       "velocity": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "uint",
+            "named": true
+          }
+        ]
+      },
+      "voice": {
         "multiple": false,
         "required": false,
         "types": [
@@ -309,6 +329,10 @@
     "named": true
   },
   {
+    "type": "key",
+    "named": false
+  },
+  {
     "type": "play",
     "named": false
   },
@@ -333,11 +357,15 @@
     "named": false
   },
   {
-    "type": "timesig",
+    "type": "time",
     "named": false
   },
   {
     "type": "velocity",
+    "named": false
+  },
+  {
+    "type": "voice",
     "named": false
   }
 ]

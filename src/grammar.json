@@ -389,7 +389,33 @@
                 },
                 {
                   "type": "STRING",
-                  "value": "timesig"
+                  "value": "key"
+                }
+              ]
+            },
+            {
+              "type": "FIELD",
+              "name": "scale",
+              "content": {
+                "type": "SYMBOL",
+                "name": "ident"
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "STRING",
+                  "value": "time"
                 }
               ]
             },
@@ -456,6 +482,32 @@
             {
               "type": "FIELD",
               "name": "channel",
+              "content": {
+                "type": "SYMBOL",
+                "name": "uint"
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "STRING",
+                  "value": "voice"
+                }
+              ]
+            },
+            {
+              "type": "FIELD",
+              "name": "voice",
               "content": {
                 "type": "SYMBOL",
                 "name": "uint"

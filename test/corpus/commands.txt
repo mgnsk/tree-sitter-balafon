@@ -5,9 +5,11 @@ commands
 :assign c 60
 :play foo
 :tempo 120
-:timesig 4 4
+:key Cm
+:time 4 4
 :velocity 100
 :channel 1
+:voice 1
 :program 1
 :control 1 1
 :start
@@ -25,7 +27,11 @@ commands
         (command
           (uint))
         (command
+          (ident))
+        (command
           (uint)
+          (uint))
+        (command
           (uint))
         (command
           (uint))

@@ -2,6 +2,7 @@
 [
   "play"
   "tempo"
+  "key"
   "program"
   "control"
   "start"
@@ -13,9 +14,10 @@
   "bar"
   "end"
   "assign"
-  "timesig"
+  "time"
   "velocity"
   "channel"
+  "voice"
 ] @constant.builtin
 
 [

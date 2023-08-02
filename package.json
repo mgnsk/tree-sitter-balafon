@@ -12,8 +12,7 @@
   },
   "scripts": {
     "build": "npx tree-sitter generate && node-gyp build",
-    "test": "npx tree-sitter test",
-    "example": "npx tree-sitter parse examples/drums.bal"
+    "test": "npx tree-sitter test"
   },
   "tree-sitter": [
     {
