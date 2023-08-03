@@ -1,6 +1,7 @@
 ; commands that emit MIDI events
 [
   "play"
+  "time"
   "tempo"
   "key"
   "program"
@@ -14,7 +15,6 @@
   "bar"
   "end"
   "assign"
-  "time"
   "velocity"
   "channel"
   "voice"
