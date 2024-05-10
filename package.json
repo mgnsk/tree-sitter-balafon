@@ -5,10 +5,10 @@
   "author": "Magnus Kokk",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.17.0"
+    "nan": "^2.19.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.8"
+    "tree-sitter-cli": "^0.22.6"
   },
   "scripts": {
     "build": "npx tree-sitter generate && node-gyp build",
