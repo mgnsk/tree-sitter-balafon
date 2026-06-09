@@ -40,6 +40,7 @@
           nvimParser = pkgs.runCommandLocal "nvim-parser-balafon" { } ''
             mkdir -p $out/parser
             cp -L ${treeSitterBalafon}/parser $out/parser/balafon.so
+            cp -r ${treeSitterBalafon}/queries $out/queries
           '';
         };
         defaultPackage = treeSitterBalafon;
