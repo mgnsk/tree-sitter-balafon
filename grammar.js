@@ -1,3 +1,12 @@
+/**
+ * @file Balafon grammar for tree-sitter
+ * @author Magnus Kokk
+ * @license GPL-3.0
+ */
+
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
 const terminator = choice(";", "\n"),
   uint = /\d+/,
   char = /[a-zA-Z]/,
@@ -32,7 +41,7 @@ const terminator = choice(";", "\n"),
   // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
   blockComment = seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/");
 
-module.exports = grammar({
+export default grammar({
   name: "balafon",
 
   extras: ($) => [$.comment, " ", "\t"],

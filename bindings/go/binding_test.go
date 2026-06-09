@@ -3,8 +3,8 @@ package tree_sitter_balafon_test
 import (
 	"testing"
 
-	tree_sitter "github.com/smacker/go-tree-sitter"
-	"github.com/tree-sitter/tree-sitter-balafon"
+	tree_sitter "github.com/tree-sitter/go-tree-sitter"
+	tree_sitter_balafon "github.com/tree-sitter/tree-sitter-balafon/bindings/go"
 )
 
 func TestCanLoadGrammar(t *testing.T) {
