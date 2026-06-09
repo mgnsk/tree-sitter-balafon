@@ -6,8 +6,15 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
         buildGrammar = import "${nixpkgs}/pkgs/by-name/tr/tree-sitter/grammars/build-grammar.nix" {
@@ -22,10 +29,18 @@
           version = "0.1.0";
           src = ./.;
         };
-      in {
+      in
+      {
         packages = {
           default = treeSitterBalafon;
           treeSitterBalafon = treeSitterBalafon;
+
+          # Neovim-compatible parser layout: expose the compiled shared object
+          # at parser/balafon.so.
+          nvimParser = pkgs.runCommandLocal "nvim-parser-balafon" { } ''
+            mkdir -p $out/parser
+            cp -L ${treeSitterBalafon}/parser $out/parser/balafon.so
+          '';
         };
         defaultPackage = treeSitterBalafon;
       }
